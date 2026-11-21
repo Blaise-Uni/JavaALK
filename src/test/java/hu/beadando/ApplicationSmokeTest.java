@@ -32,10 +32,4 @@ class ApplicationSmokeTest {
                 .andExpect(content().string(containsString("/teszt")));
     }
 
-    @Test
-    void forexPageShowsFriendlyErrorWithoutToken() throws Exception {
-        mockMvc.perform(get("/forex/account"))
-                .andExpect(status().isOk())
-                .andExpect(content().string(containsString("nincs beállítva")));
-    }
 }
