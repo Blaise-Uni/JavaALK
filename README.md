@@ -7,7 +7,7 @@ Böngészős alkalmazás: MNB árfolyamok (SOAP + Chart.js) és Forex kereskedé
 2. **File → Project Structure → Project → SDK**: válassz **JDK 25**-öt (ha nincs: *Add SDK → Download JDK…* → 25).
    A *Language level* legyen **25**. A Maven az IntelliJ-be beépítve érkezik, külön telepíteni nem kell.
 3. Írd át az `src/main/resources/application.properties` fájlban:
-   - `app.authors` – a ti neveitek és Neptun-kódjaitok (ez kerül minden oldal aljára),
+   - `app.authors` – nevünk és kódunk (ez kerül minden oldal aljára),
    - `oanda.token` és `oanda.account-id` – az Oanda **demó (practice)** fiók adatai.
 4. Futtasd a `BeadandoApplication` osztályt (zöld nyíl), majd nyisd meg: <http://localhost:8081>
 
