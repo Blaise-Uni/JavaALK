@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="hu" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/layout :: head('Forex-account')}"></head>
+<body>
+<nav th:replace="~{fragments/layout :: navbar}"></nav>
+<main class="container py-4">
+    <h2 class="mb-3">Forex – számlainformációk</h2>
+    <div class="alert alert-danger" th:if="${error}" th:text="${error}"></div>
+    <div class="table-responsive" th:if="${account != null}">
+        <table class="table table-striped" style="max-width: 640px">
+            <tbody>
+            <tr th:each="e : ${account}">
+                <th th:text="${e.key}"></th>
+                <td th:text="${e.value}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</main>
+<footer th:replace="~{fragments/layout :: footer}"></footer>
+</body>
+</html>

@@ -1,0 +1,8 @@
+.hero {
+  background: linear-gradient(135deg, #1b2a49 0%, #3a6ea5 60%, #6fb1fc 100%);
+  color: #fff;
+  border-radius: .75rem;
+}
+.feature-card { transition: transform .15s ease, box-shadow .15s ease; }
+.feature-card:hover { transform: translateY(-4px); box-shadow: 0 .5rem 1.25rem rgba(0,0,0,.15); }
+footer.site-footer { margin-top: 3rem; padding: 1.25rem 0; border-top: 1px solid rgba(0,0,0,.1); }

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="hu" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/layout :: head('Forex-HistÁr')}"></head>
+<body>
+<nav th:replace="~{fragments/layout :: navbar}"></nav>
+<main class="container py-4">
+    <h2 class="mb-3">Forex – historikus árak (utolsó 10)</h2>
+    <div class="alert alert-danger" th:if="${error}" th:text="${error}"></div>
+    <form method="get" th:action="@{/forex/hist}" class="row g-3 align-items-end mb-4">
+        <div class="col-md-4">
+            <label class="form-label" for="instrument">Instrumentum</label>
+            <select class="form-select" id="instrument" name="instrument">
+                <option th:each="i : ${instruments}" th:value="${i}" th:text="${i}" th:selected="${i == selected}"></option>
+            </select>
+        </div>
+        <div class="col-md-3">
+            <label class="form-label" for="granularity">Granularity</label>
+            <select class="form-select" id="granularity" name="granularity">
+                <option th:each="g : ${granularities}" th:value="${g}" th:text="${g}" th:selected="${g == selectedGranularity}"></option>
+            </select>
+        </div>
+        <div class="col-md-3"><button class="btn btn-primary w-100" type="submit">Lekérdezés</button></div>
+    </form>
+    <div class="table-responsive" th:if="${candles != null}">
+        <table class="table table-striped table-sm">
+            <thead><tr><th>Idő</th><th>Nyitó</th><th>Max</th><th>Min</th><th>Záró</th><th>Volumen</th></tr></thead>
+            <tbody>
+            <tr th:each="c : ${candles}">
+                <td th:text="${c.time}"></td><td th:text="${c.open}"></td><td th:text="${c.high}"></td>
+                <td th:text="${c.low}"></td><td th:text="${c.close}"></td><td th:text="${c.volume}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</main>
+<footer th:replace="~{fragments/layout :: footer}"></footer>
+</body>
+</html>

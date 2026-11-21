@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="hu" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/layout :: head('Teszt')}"></head>
+<body>
+<nav th:replace="~{fragments/layout :: navbar}"></nav>
+<main class="container py-4">
+    <h2 class="mb-3">Számológép (Teszt menü)</h2>
+    <div class="alert alert-danger" id="error" th:if="${error}" th:text="${error}"></div>
+    <div class="alert alert-success" id="result" th:if="${result}">
+        Eredmény: <strong th:text="${result}"></strong>
+    </div>
+    <form method="post" th:action="@{/teszt}" class="row g-3 align-items-end">
+        <div class="col-md-3">
+            <label class="form-label" for="a">Első szám</label>
+            <input type="text" inputmode="decimal" class="form-control" id="a" name="a" th:value="${a}" required>
+        </div>
+        <div class="col-md-2">
+            <label class="form-label" for="op">Művelet</label>
+            <select class="form-select" id="op" name="op">
+                <option value="add" th:selected="${op == 'add'}">+ összeadás</option>
+                <option value="sub" th:selected="${op == 'sub'}">– kivonás</option>
+                <option value="mul" th:selected="${op == 'mul'}">× szorzás</option>
+                <option value="div" th:selected="${op == 'div'}">÷ osztás</option>
+            </select>
+        </div>
+        <div class="col-md-3">
+            <label class="form-label" for="b">Második szám</label>
+            <input type="text" inputmode="decimal" class="form-control" id="b" name="b" th:value="${b}" required>
+        </div>
+        <div class="col-md-2"><button class="btn btn-primary w-100" type="submit">Számol</button></div>
+    </form>
+</main>
+<footer th:replace="~{fragments/layout :: footer}"></footer>
+</body>
+</html>

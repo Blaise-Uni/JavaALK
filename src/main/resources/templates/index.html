@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="hu" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/layout :: head('Főoldal')}"></head>
+<body>
+<nav th:replace="~{fragments/layout :: navbar}"></nav>
+<main class="container py-4">
+    <section class="hero p-5 mb-4 text-center">
+        <h1 class="display-5 fw-bold">Árfolyamok és devizakereskedés</h1>
+        <p class="lead mb-0">Java Spring Boot alkalmazás: MNB árfolyamok SOAP-on keresztül,
+            Forex kereskedés az Oanda v20 API-val.</p>
+    </section>
+
+    <div class="row g-4">
+        <div class="col-md-6 col-lg-4">
+            <div class="card feature-card h-100"><div class="card-body">
+                <h5 class="card-title">SOAP – MNB árfolyamok</h5>
+                <p class="card-text">Válassz devizát és időszakot, a napi árfolyamok táblázatban és Chart.js grafikonon jelennek meg.</p>
+                <a th:href="@{/soap}" class="btn btn-primary">Megnyitás</a>
+            </div></div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+            <div class="card feature-card h-100"><div class="card-body">
+                <h5 class="card-title">Forex-account</h5>
+                <p class="card-text">Az Oanda demószámla adatai: egyenleg, NAV, margin, nyitott ügyletek.</p>
+                <a th:href="@{/forex/account}" class="btn btn-primary">Megnyitás</a>
+            </div></div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+            <div class="card feature-card h-100"><div class="card-body">
+                <h5 class="card-title">Forex-AktÁr</h5>
+                <p class="card-text">Aktuális vételi és eladási ár a kiválasztott instrumentumra.</p>
+                <a th:href="@{/forex/price}" class="btn btn-primary">Megnyitás</a>
+            </div></div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+            <div class="card feature-card h-100"><div class="card-body">
+                <h5 class="card-title">Forex-HistÁr</h5>
+                <p class="card-text">Az utolsó 10 historikus gyertya választható időegységgel.</p>
+                <a th:href="@{/forex/hist}" class="btn btn-primary">Megnyitás</a>
+            </div></div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+            <div class="card feature-card h-100"><div class="card-body">
+                <h5 class="card-title">Forex-Nyit / Poz / Zár</h5>
+                <p class="card-text">Pozíció nyitása piaci áron (Long / Short), nyitott pozíciók listája és zárás tradeId alapján.</p>
+                <a th:href="@{/forex/open}" class="btn btn-primary me-1">Nyit</a>
+                <a th:href="@{/forex/positions}" class="btn btn-outline-primary me-1">Poz</a>
+                <a th:href="@{/forex/close}" class="btn btn-outline-primary">Zár</a>
+            </div></div>
+        </div>
+    </div>
+</main>
+<footer th:replace="~{fragments/layout :: footer}"></footer>
+</body>
+</html>
